@@ -14,6 +14,9 @@
         <module>gulimall-orider</module>
         <module>gulimall-product</module>
         <module>gulimall-member</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>gulimall-common</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

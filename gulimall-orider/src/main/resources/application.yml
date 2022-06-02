@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    data-username: root
+    data-password: root
+    url: jdbc:mysql://192.168.239.100:3306/gulimall-oms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#扫描resource的mapper
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  #mybatisplus主键自增
+  global-config:
+    db-config:
+      id-type: auto
+server:
+  port: 9000
