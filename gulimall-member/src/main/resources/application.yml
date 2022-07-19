@@ -4,6 +4,16 @@ spring:
     data-password: root
     url: jdbc:mysql://192.168.239.100:3306/gulimall-ums
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        #nacos 版本和springboot版本不一致问题 禁止检查
+    compatibility-verifier:
+      enabled: false
+  application:
+    name: gulimall-member
 #扫描resource的mapper
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml

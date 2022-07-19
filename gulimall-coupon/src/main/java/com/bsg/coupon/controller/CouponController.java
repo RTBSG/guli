@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,22 +21,40 @@ import com.bsg.common.utils.R;
 
 /**
  * 优惠券信息
- *
+ *@RefreshScope 动态刷新配置文件
  * @author bsg
  * @email sunlightcs@gmail.com
  * @date 2022-06-02 16:02:16
  */
 @RestController
+@RefreshScope
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+    @Value("${coupon.user.name}")
+    String name;
+    @Value("${coupon.user.age}")
+    Integer age;
 
+    @RequestMapping("/test")
+    public R test() {
+        return R.ok().put("name", name).put("age", age);
+    }
+
+    @RequestMapping("/member/list")
+    public R memberCoupons() {
+
+        CouponEntity coupon = new CouponEntity();
+        coupon.setCouponName("满100-10");
+        return R.ok().put("coupons", Arrays.asList(coupon));
+    }
     /**
      * 列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
+
         PageUtils page = couponService.queryPage(params);
 
         return R.ok().put("page", page);
