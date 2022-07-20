@@ -1,28 +1,28 @@
-spring:
-  datasource:
-    data-username: root
-    data-password: root
-    url: jdbc:mysql://192.168.239.100:3306/gulimall-sms
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-
-        #nacos 版本和springboot版本不一致问题 禁止检查
-      config:
-        ext-config:
-          data-id: gulimall-coupon.properties
-    compatibility-verifier:
-      enabled: false
-  application:
-    name: gulimall-coupon
-#扫描resource的mapper
-mybatis-plus:
-  mapper-locations: classpath:/mapper/**/*.xml
-  #mybatisplus主键自增
-  global-config:
-    db-config:
-      id-type: auto
-server:
-  port: 7000
+#spring:
+#  datasource:
+#    data-username: root
+#    data-password: root
+#    url: jdbc:mysql://192.168.239.100:3306/gulimall-sms
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#
+#        #nacos 版本和springboot版本不一致问题 禁止检查
+#      config:
+#        ext-config:
+#          data-id: gulimall-coupon.properties
+#    compatibility-verifier:
+#      enabled: false
+#  application:
+#    name: gulimall-coupon
+##扫描resource的mapper
+#mybatis-plus:
+#  mapper-locations: classpath:/mapper/**/*.xml
+#  #mybatisplus主键自增
+#  global-config:
+#    db-config:
+#      id-type: auto
+#server:
+#  port: 7000
