@@ -32,15 +32,6 @@ import com.bsg.common.utils.R;
 public class CouponController {
     @Autowired
     private CouponService couponService;
-    @Value("${coupon.user.name}")
-    String name;
-    @Value("${coupon.user.age}")
-    Integer age;
-
-    @RequestMapping("/test")
-    public R test() {
-        return R.ok().put("name", name).put("age", age);
-    }
 
     @RequestMapping("/member/list")
     public R memberCoupons() {

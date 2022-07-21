@@ -26,3 +26,8 @@
 #      id-type: auto
 #server:
 #  port: 7000
+spring:
+  cloud:
+    #nacos 版本和springboot版本不一致问题 禁止检查
+    compatibility-verifier:
+      enabled: false

@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+# -在yml中代表数组
+        - id: test_routh
+          uri: http://www.baidu.com
+          predicates:
+            #  断言 Query=url,baidu 如果参数匹配了url 并且符合后边的正则表达 包含baidu 进行转发uri
+            - Query=url,baidu
+        - id: qq_routh
+          uri: http://www.qq.com
+          predicates:
+              #  Query=url,qq 如果参数匹配了url 并且符合后边的正则表达 包含qq 进行转发uri
+            - Query=url,qq
